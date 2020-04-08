@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  proftpd:
+    build:
+      context: ./proFTPD      
+    restart: unless-stopped
+    container_name: proFTPD
+    networks:
+      proftpd-net:
+        ipv4_address: 172.100.13.6
+    environment:
+      FTP_LIST: "user:123"
+      USERADD_OPTIONS: "-o --gid 33 --uid 33"
+    volumes:
+      - ./proFTPD/etc/proftpd:/etc/proftpd
+    #   - ./proFTPD/etc/ssh:/etc/ssh
+
+networks:
+  proftpd-net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.100.13.0/24
