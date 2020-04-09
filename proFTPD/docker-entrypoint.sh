@@ -14,5 +14,5 @@ if [ -n "$FTP_LIST" ]; then
 		chown -R $ftp_login:$ftp_login /home/$ftp_login
 	done
 fi
-proftpd --nodaemon
+#proftpd --nodaemon
 sleep infinity
