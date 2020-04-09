@@ -15,8 +15,8 @@ services:
     networks:
       sftp_server-net:
         ipv4_address: 172.100.13.6
-    # volumes:
-    #   - ./proFTPD/etc/proftpd:/etc/proftpd
+    volumes:
+      - ./proFTPD/etc/proftpd:/etc/proftpd
     #   - ./proFTPD/etc/ssh:/etc/ssh
 
 networks:

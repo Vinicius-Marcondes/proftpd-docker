@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# apt-get update -qq & apt-get install -y proftpd;
 if [ -n "$FTP_LIST" ]; then
 	IFS=';' read -r -a parsed_ftp_list <<< "$FTP_LIST" ; unset IFS
 	for ftp_account in ${parsed_ftp_list[@]}
@@ -14,5 +14,5 @@ if [ -n "$FTP_LIST" ]; then
 		chown -R $ftp_login:$ftp_login /home/$ftp_login
 	done
 fi
-#proftpd --nodaemon
+proftpd --nodaemon
 sleep infinity
